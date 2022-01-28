@@ -17,6 +17,9 @@ export class WalletController implements AppRoute {
   public async getWallet(req: Request, res: Response): Promise<any> {
     try {
       var wallet = await Wallet.findOne({ wallet_address: req.query.wallet_address });
+      if (!wallet) {
+        throw { message: 'Cannot find wallet info!' };
+      }
       return res.status(200).json(wallet);
     }
     catch (err) {
@@ -58,14 +61,21 @@ export class WalletController implements AppRoute {
     }
   }
 
-  public async updateWallet(req: Request, res: Response): Promise<any> {
-    try {
-      var wallet = await Wallet.findOneAndUpdate({ wallet_address: req.body.wallet_address }, { balance: req.body.balance }, { new: true });
-      return res.status(200).json(wallet);
-    }
-    catch (err) {
-      console.log('[WalletController] updateWallet - ERROR: ', err);
-      return res.status(400).send(err);
-    }
+db.createUser(
+{
+  user: "thien",
+  pwd: "thien2021",
+  roles:[{role: "readWrite" , db:"xld"}]
+})
+
+  public async updateWallet(req: Request, res: Response): Promise < any > {
+  try {
+    var wallet = await Wallet.findOneAndUpdate({ wallet_address: req.body.wallet_address }, { balance: req.body.balance }, { new: true });
+    return res.status(200).json(wallet);
   }
+    catch(err) {
+    console.log('[WalletController] updateWallet - ERROR: ', err);
+    return res.status(400).send(err);
+  }
+}
 }
