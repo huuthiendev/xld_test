@@ -61,21 +61,14 @@ export class WalletController implements AppRoute {
     }
   }
 
-db.createUser(
-{
-  user: "thien",
-  pwd: "thien2021",
-  roles:[{role: "readWrite" , db:"xld"}]
-})
-
-  public async updateWallet(req: Request, res: Response): Promise < any > {
-  try {
-    var wallet = await Wallet.findOneAndUpdate({ wallet_address: req.body.wallet_address }, { balance: req.body.balance }, { new: true });
-    return res.status(200).json(wallet);
+  public async updateWallet(req: Request, res: Response): Promise<any> {
+    try {
+      var wallet = await Wallet.findOneAndUpdate({ wallet_address: req.body.wallet_address }, { balance: req.body.balance }, { new: true });
+      return res.status(200).json(wallet);
+    }
+    catch (err) {
+      console.log('[WalletController] updateWallet - ERROR: ', err);
+      return res.status(400).send(err);
+    }
   }
-    catch(err) {
-    console.log('[WalletController] updateWallet - ERROR: ', err);
-    return res.status(400).send(err);
-  }
-}
 }
