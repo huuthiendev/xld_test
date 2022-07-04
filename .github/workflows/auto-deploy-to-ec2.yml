@@ -19,7 +19,7 @@ jobs:
         key: ${{ secrets.PRIVATE_KEY }}
         port: 22
         script: |
-          cd ~/home/source/xld_test
+          cd ~/source/xld_test
           git pull origin main
           npm install
           pm2 restart xld_test
