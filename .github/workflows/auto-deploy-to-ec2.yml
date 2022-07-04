@@ -20,6 +20,6 @@ jobs:
         port: 22
         script: |
           cd ~/source/xld_test
-          git pull origin main
+          git pull
           npm install
           pm2 restart xld_test
