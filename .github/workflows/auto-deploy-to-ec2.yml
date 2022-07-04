@@ -22,4 +22,5 @@ jobs:
           cd ~/source/xld_test
           git pull
           npm install
+          npm run build
           pm2 restart xld_test
