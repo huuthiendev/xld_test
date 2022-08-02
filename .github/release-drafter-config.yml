@@ -12,6 +12,23 @@ categories:
       - 'bugfix'
       - 'bug'
       - 'hotfix'
+autolabeler:
+  - label: 'bug'
+    branch:
+      - '/fix-/.+/'
+      - '/fix\/.+/'
+      - '/bug\/.+/'
+      - '/bug-/.+/'
+      - '/bugfix\/.+/'
+      - '/bugfix-/.+/'
+      - '/hotfix\/.+/'
+      - '/hotfix-/.+/'
+  - label: 'feature'
+    branch:
+      - '/feature\/.+/'
+      - '/feature-/.+/'
+      - '/update\/.+/'
+      - '/update-/.+/'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
