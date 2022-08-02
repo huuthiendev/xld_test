@@ -16,7 +16,7 @@ export class WalletController implements AppRoute {
 
   public async getWallet(req: Request, res: Response): Promise<any> {
     try {
-      console.log('Thien TEST 6')
+      console.log('Thien TEST 1')
       var wallet = await Wallet.findOne({ wallet_address: req.query.wallet_address });
       return res.status(200).json(wallet);
     }
