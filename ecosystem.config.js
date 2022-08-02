@@ -18,7 +18,7 @@ module.exports = {
       ssh_options: 'StrictHostKeyChecking=no',
       ref: 'origin/main',
       repo: 'git@github.com:huuthiendev/xld_test.git',
-      path: '/home/ubuntu/api',
+      path: '/home/ubuntu/source/xld_test',
       'pre-setup': '',
       'post-setup': 'ln -s ../.env .env',
       'pre-deploy-local': '',
