@@ -8,9 +8,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+       - name: Public IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
       - name: Print Public IP
         run: |
-          echo $
+          echo ${{ steps.ip.outputs.ipv4 }}
       - name: SSH Agent
         uses: webfactory/ssh-agent@v0.5.4
         with:
