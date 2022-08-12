@@ -8,6 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Public IP
+        run: |
+          echo $
       - name: SSH Agent
         uses: webfactory/ssh-agent@v0.5.4
         with:
